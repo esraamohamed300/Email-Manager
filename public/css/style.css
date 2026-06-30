@@ -1,0 +1,60 @@
+* { font-family: 'DM Sans', sans-serif; box-sizing: border-box; }
+.mono { font-family: 'DM Mono', monospace; }
+
+.row-hover:hover { background-color: #f8fafc; }
+.row-hover:hover .row-actions { opacity: 1; }
+.row-actions { opacity: 0; transition: opacity 0.15s; }
+
+.sidebar-link { transition: background 0.12s, color 0.12s; }
+.sidebar-link:hover { background: #f1f5f9; }
+.sidebar-link.active { background: #eff6ff; color: #2563eb; }
+.sidebar-link.active svg { color: #2563eb; }
+
+.check-row { accent-color: #2563eb; }
+tr.selected { background: #eff6ff !important; }
+
+.attachment-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 2px 8px; border-radius: 999px;
+    background: #f1f5f9; border: 1px solid #e2e8f0;
+    font-size: 11px; color: #475569; text-decoration: none;
+    max-width: 180px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+.attachment-pill:hover { background: #e2e8f0; }
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+
+    /* Hide the sidebar entirely on mobile —
+       the Blade mobile section has its own header */
+    aside.w-64 {
+        display: none !important;
+    }
+
+    /* Main area must scroll freely on mobile */
+    main.flex-1 {
+        overflow: auto !important;
+        height: 100vh;
+    }
+
+    /* Dialogs full-screen on mobile */
+    dialog { padding: 0 !important; }
+    dialog > div {
+        min-height: 100vh !important;
+        align-items: flex-end !important;
+        padding: 0 !important;
+    }
+    dialog > div > div {
+        border-radius: 20px 20px 0 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    #messageThread { padding: 12px !important; }
+}
+
+/* ── Tablet ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+    aside.w-64 { width: 200px !important; }
+    #searchInput { width: 180px !important; }
+}
